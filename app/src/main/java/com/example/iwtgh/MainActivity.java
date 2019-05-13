@@ -10,7 +10,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); //가로화면
+       // setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); //가로화면
         setContentView(R.layout.activity_main);
     }
 }
