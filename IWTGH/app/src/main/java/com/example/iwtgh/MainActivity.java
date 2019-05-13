@@ -3,7 +3,9 @@ package com.example.iwtgh;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
