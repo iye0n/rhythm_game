@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
         switch (view.getId()){
             case R.id.start_button:
                 // 스타트 -> 노래 목록 띄우기
+                Intent intent = new Intent(getApplicationContext(), SelectActivity.class);
+                startActivity(intent);
                 break;
         }
     }
