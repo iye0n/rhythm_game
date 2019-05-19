@@ -2,6 +2,7 @@ package com.example.iwtgh;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,8 @@ import android.view.WindowManager;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static MediaPlayer m;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +21,11 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
+
+        //bgm
+        m = MediaPlayer.create(this, R.raw.bgm);
+        m.setLooping(true);
+        m.start();
     }
 
     public void onClick(View view) {
