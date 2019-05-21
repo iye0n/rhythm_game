@@ -8,6 +8,7 @@ import android.app.Notification;
 
 import android.content.Intent;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
 import android.os.Handler;
@@ -15,6 +16,7 @@ import android.os.Handler;
 import android.os.Message;
 
 import android.view.Window;
+import android.view.WindowManager;
 
 public class Loding extends Activity {
 
@@ -23,6 +25,10 @@ public class Loding extends Activity {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
 
         setContentView(R.layout.activity_loding);
 
@@ -42,7 +48,7 @@ public class Loding extends Activity {
 
         };
 
-        handler.sendEmptyMessageDelayed(0, 3000); //3초후 화면전환
+        handler.sendEmptyMessageDelayed(0, 1000); //1초후 화면전환
 
     }
 

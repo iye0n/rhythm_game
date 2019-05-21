@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //bgm
+
         m = MediaPlayer.create(this, R.raw.bgm);
         m.setLooping(true);
         m.start();
