@@ -3,6 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/game"
-    >
+    android:gravity="center_horizontal">
+
+    <ImageView
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/black_overlay" />
 
 </LinearLayout>

@@ -34,6 +34,9 @@ public class ListSong extends Activity {
 
         list.add(new Song("고고베베 - 마마무", R.drawable.first));
         list.add(new Song("답을 찾지 못한 날 - 윤하", R.drawable.first));
+        list.add(new Song("STAY - BlackPink", R.drawable.first));
+        list.add(new Song("Perfect - Ed Sheeran", R.drawable.first));
+        list.add(new Song("Bad guy - Billie Eilish", R.drawable.first));
 
         MyAdapter adapter = new MyAdapter(
                 getApplicationContext(), // 현재화면의 제어권자
@@ -58,7 +61,6 @@ public class ListSong extends Activity {
                 // intent 객체에 데이터를 실어서 보내기
                 // 리스트뷰 클릭시 인텐트 (Intent) 생성하고 position 값을 이용하여 인텐트로 넘길값들을 넘긴다
                 intent.putExtra("title", list.get(position).title);
-                intent.putExtra("img", list.get(position).img);
 
                 startActivity(intent);
             }
@@ -106,7 +108,7 @@ class MyAdapter extends BaseAdapter { // 리스트 뷰의 아답타
     }
 }
 
-class Song { // 자바빈
+class Song {
     String title = ""; // 곡 title
     int img; // 앨범 이미지
     public Song(String title, int img) {
@@ -114,5 +116,4 @@ class Song { // 자바빈
         this.title = title;
         this.img = img;
     }
-    public Song() {}
 }
