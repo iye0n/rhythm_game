@@ -13,6 +13,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -20,7 +21,19 @@ import static com.example.iwtgh.R.id.basicnode;
 
 class MyView extends View {
 
-    int x = 0, y = 0;
+    float x = 0, y = 0;
+
+    private Runnable createRunnable(final int i){
+
+        Runnable aRunnable = new Runnable(){
+            public void run(){
+
+            }
+        };
+
+        return aRunnable;
+
+    }
 
     public MyView(Context context) {
         super(context);
@@ -44,15 +57,15 @@ class MyView extends View {
 
 class GameObject{
 
-    GameObject(MyView mv, String Nodetype, String Songtype, Music a1) throws InterruptedException {
-
-        drop(mv, Nodetype);
-
-        Thread.sleep(10000);
-        a1.stopMusic();
+    MyView mv;
+    Music m;
+    GameObject(MyView mv1, String Songtype, final Music a) throws InterruptedException {
+        mv = mv1;
+        m = a;
+        //gogo();
     }
 
-    public void drop(MyView mv, String Nodetype) throws InterruptedException {
+    public void drop(final MyView mv, Handler handler, String Nodetype, final int start, final int speed) throws InterruptedException {
 
         switch(Nodetype){
             case "1":
@@ -68,15 +81,82 @@ class GameObject{
                 mv.x = 1270; mv.y = 50;
         }
 
-        for(int i=0; i<100; i++){
-            mv.y++;
-            Thread.sleep(100);
-            mv.invalidate();
+        Log.d("Hello","Hello");
+
+        //final Handler handler = new Handler();
+        for (int i = 0; i < 5; i++) {
+            final int thisi = i;
+            final float thisx = mv.x;
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Log.d("Hello",String.format("postDelayed %d %d %d:", thisi, start, speed));
+                    mv.x = thisx;
+                    mv.y = mv.y + (float) 50;
+                    mv.invalidate();
+                }
+            }, start + i * speed);
         }
+
+        //handler.removeMessages(0);
+
+        /*handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+            }
+        }, 2000);*/
+    }
+
+    public void gogo(){
+        try {
+            final Handler handler = new Handler();
+            drop(mv,  handler,"1", 3000, 100);
+            drop(mv,  handler,"3", 10100, 100);
+            drop(mv,  handler,"4", 15200, 100);
+
+//            while(true);
+
+//            handler.postDelayed(new Runnable() {
+//                @Override
+//                public void run() {
+//                    try {
+//                        GameObject.drop(mv, "4");
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            }, 2000);
+            //handler.removeMessages(0);
+
+//            handler.postDelayed(new Runnable() {
+//                @Override
+//                public void run() {
+//                    try {
+//                        GameObject.drop(mv, "3");
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            }, 4000);
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                m.stopMusic();
+            }
+        }, 30000);
     }
 }
 
+
 public class Game extends Activity {
+
+    GameObject gameobject;
 
     protected void onCreate(Bundle savedInstanceState) {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
@@ -99,7 +179,7 @@ public class Game extends Activity {
                 Music a1 = new Music(this, "gogobebe", false);
                 mv.invalidate();
                 try {
-                    new GameObject(mv, "4", "1", a1);
+                    gameobject = new GameObject(mv, "4", a1);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -109,7 +189,7 @@ public class Game extends Activity {
                 Music a2 = new Music(this, "nodab", false);
                 mv.invalidate();
                 try {
-                    new GameObject(mv, "4", "2", a2);
+                    gameobject = new GameObject(mv, "4", a2);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -118,7 +198,7 @@ public class Game extends Activity {
                 Music a3 = new Music(this, "stay", false);
                 mv.invalidate();
                 try {
-                    new GameObject(mv, "4", "3", a3);
+                    gameobject = new GameObject(mv, "4", a3);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -127,7 +207,7 @@ public class Game extends Activity {
                 Music a4 = new Music(this, "perfect", false);
                 mv.invalidate();
                 try {
-                    new GameObject(mv, "4", "4", a4);
+                    gameobject = new GameObject(mv, "4", a4);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -136,12 +216,20 @@ public class Game extends Activity {
                 Music a5 = new Music(this, "badguy", false);
                 mv.invalidate();
                 try {
-                    new GameObject(mv, "4", "5", a5);
+                    gameobject = new GameObject(mv, "4", a5);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
                 break;
         }
+
+
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("Hello", "World");
+        gameobject.gogo();
+    }
 }

@@ -37,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
                 Intent sel = new Intent(getApplicationContext(), ListSong.class);
 
                 startActivity(sel);
+                m.stop();
                 break;
         }
     }
 }
-

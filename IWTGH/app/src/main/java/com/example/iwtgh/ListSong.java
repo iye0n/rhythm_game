@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,6 +55,7 @@ public class ListSong extends Activity {
                 // 1. 다음화면을 만든다
                 // 2. AndroidManifest.xml 에 화면을 등록한다
                 // 3. Intent 객체를 생성하여 날린다
+
                 Intent intent = new Intent(
                         getApplicationContext(), // 현재화면의 제어권자
                         Game.class); // 다음넘어갈 화면
@@ -66,6 +68,7 @@ public class ListSong extends Activity {
             }
         });
     }
+
 }
 
 class MyAdapter extends BaseAdapter { // 리스트 뷰의 아답타
