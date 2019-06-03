@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.AssetManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,8 +27,8 @@ public class ListSong extends Activity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        Log.d("test", "listSong");
+        //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -44,7 +45,7 @@ public class ListSong extends Activity {
                 R.layout.song,  // 리스트뷰의 한행의 레이아웃
                 list);         // 데이터
 
-        ListView lv = (ListView)findViewById(R.id.select_dialog_listview);
+        ListView lv = findViewById(R.id.select_dialog_listview);
         lv.setAdapter(adapter);
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -100,8 +101,8 @@ class MyAdapter extends BaseAdapter { // 리스트 뷰의 아답타
         if (convertView==null) {
             convertView = inf.inflate(layout, null);
         }
-        ImageView iv = (ImageView)convertView.findViewById(R.id.imageView1);
-        TextView tvName = (TextView)convertView.findViewById(R.id.textView1);
+        ImageView iv = convertView.findViewById(R.id.imageView1);
+        TextView tvName = convertView.findViewById(R.id.textView1);
 
         Song m = al.get(position);
         iv.setImageResource(m.img);

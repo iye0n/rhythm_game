@@ -7,21 +7,21 @@
     android:gravity="center_horizontal">
 
     <LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-    <TextView
-        android:id="@+id/textView1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#000" />
-<!--
-    <com.example.iwtgh.MyView
-        android:id = "@+id/basicnode"
-        android:layout_width="wrap_content"
-        android:layout_height = "wrap_content"
-        android:src="@drawable/nodebasic"/>-->
+        android:layout_height="wrap_content">
+        <!--<TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#000" />-->
+        <!--
+            <com.example.iwtgh.MyView
+                android:id = "@+id/basicnode"
+                android:layout_width="wrap_content"
+                android:layout_height = "wrap_content"
+                android:src="@drawable/nodebasic"/>-->
     </LinearLayout>
     <com.example.iwtgh.MyView
         android:id = "@+id/basicnode"
@@ -29,4 +29,3 @@
         android:layout_height = "wrap_content"
         android:src="@drawable/nodebasic"/>
 </LinearLayout>
-
