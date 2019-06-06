@@ -1,36 +1,31 @@
 package com.example.iwtgh;
 
-import android.annotation.SuppressLint;
-
 import android.app.Activity;
-
-import android.app.Notification;
 
 import android.content.Intent;
 
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
 import android.os.Handler;
 
 import android.os.Message;
 
-import android.view.Window;
 import android.view.WindowManager;
 
-public class Loding extends Activity {
+public class Loading extends Activity {
+
 
     @Override
 
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+//        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 
-        setContentView(R.layout.activity_loding);
+        setContentView(R.layout.activity_loading);
 
         Handler handler = new Handler() {
 
@@ -40,7 +35,7 @@ public class Loding extends Activity {
 
                 //startActivity(intent);
 
-                startActivity(new Intent(Loding.this, MainActivity.class));
+                startActivity(new Intent(Loading.this, MainActivity.class));
 
                 finish();
 

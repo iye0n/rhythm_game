@@ -34,11 +34,11 @@ public class ListSong extends Activity {
 
         setContentView(R.layout.activity_list);
 
-        list.add(new Song("고고베베 - 마마무", R.drawable.first));
-        list.add(new Song("답을 찾지 못한 날 - 윤하", R.drawable.first));
-        list.add(new Song("STAY - BlackPink", R.drawable.first));
-        list.add(new Song("Perfect - Ed Sheeran", R.drawable.first));
-        list.add(new Song("Bad guy - Billie Eilish", R.drawable.first));
+        list.add(new Song("고고베베 - 마마무", R.drawable.gogobebe));
+        list.add(new Song("답을 찾지 못한 날 - 윤하", R.drawable.noanswer));
+        list.add(new Song("STAY - BlackPink", R.drawable.stay));
+        list.add(new Song("Perfect - Ed Sheeran", R.drawable.perfect));
+        list.add(new Song("Bad guy - Billie Eilish", R.drawable.badguy));
 
         MyAdapter adapter = new MyAdapter(
                 getApplicationContext(), // 현재화면의 제어권자

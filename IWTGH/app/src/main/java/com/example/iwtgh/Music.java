@@ -48,6 +48,7 @@ public class Music {
 
     public void stopMusic(){
         music.stop();
+        music.release();
         music.reset();
     }
 }

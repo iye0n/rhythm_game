@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".MainActivity"
+            android:name=".Loading"
             android:label="@string/title_activity_fullscreen"
             android:screenOrientation="landscape"
             >
@@ -21,18 +21,29 @@
                 <category android:name="android.intent.category.LAUNCHER" />
 
             </intent-filter>
+
         </activity>
+
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_fullscreen"
+            android:screenOrientation="landscape"
+            ></activity>
+
         <!--<activity android:name=".MainActivity"></activity>-->
         <activity
             android:name=".ListSong"
-            android:screenOrientation="landscape"
             android:label="@string/title_activity_fullscreen"
+            android:screenOrientation="landscape"
             ></activity>
         <activity
             android:name=".Game"
-            android:screenOrientation="landscape"
-            android:label="FullscreenActivity">
+            android:label="FullscreenActivity"
+            android:screenOrientation="landscape">
         </activity>
+        <activity android:name=".ShowScore"
+            android:label="FullscreenActivity"
+            android:screenOrientation="landscape"></activity>
 
     </application>
 

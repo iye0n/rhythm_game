@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         m = MediaPlayer.create(this, R.raw.bgm);
         m.setLooping(true);
         m.start();
-        Log.d("test", "startSong");
 
     }
 
